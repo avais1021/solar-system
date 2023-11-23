@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    /* overflow: hidden; */
+}
+
+.container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+    display: flex;
+    /*new changes*/
+    justify-content: center;
+    /*new changes*/
+    align-items: center;
+    /*new changes*/
+}
+
+.sun {
+    position: absolute;
+    /* top: 15em;       /*new changes*/
+    left: 15em;
+    /*new changes*/
+    top: 50%;
+    /*new changes*/
+    left: 50%;
+    /*new changes*/
+    transform: translate(-50%, -50%);
+    /*new changes*/
+    width: 10em;
+    height: 10em;
+    background-color: #fdb813;
+    border-radius: 50%;
+    box-shadow: 0 0 3em #fff;
+}
+
+.earth,
+.moon {
+    /* position: absolute; */
+    /*new changes*/
+    position: relative;
+    /*new changes*/
+    border-style: solid;
+    border-color: #fff transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+.earth {
+    /* top: 5em; */
+    /*new changes*/
+    /* left: 5em; */
+    /*new changes*/
+    width: 30em;
+    height: 30em;
+    animation: orbit 36.5s linear infinite;
+}
+
+.moon {
+    top: 0;
+    left: 0;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
+}
+
+.earth::before,
+.moon::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: #345ca5;
+}
+
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #f6f1d5;
+}
+
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* new changes  */
+/* add media query for mobile device */
+
+@media screen and (max-width : 460.9px) {
+    .earth {
+        width: 22em;
+        height: 22em;
+    }
+    .sun {
+        width: 6em;
+        height: 6em;
+    }
+}
